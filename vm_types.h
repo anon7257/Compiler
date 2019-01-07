@@ -10,9 +10,9 @@ typedef struct {
   int32_t arg3;
 } Instruction;
 
-#define CODE_SIZE 4096
+#define CODE_SIZE 0x1000
 
-#define MEM_SIZE 4096
+#define MEM_SIZE 0x10000
 
 #define NUM_REGS 16
 
