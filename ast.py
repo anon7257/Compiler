@@ -73,6 +73,7 @@ struct %s {""" % (node)
   print_impl = ""
   print_impl = print_impl + """
 void print%s(FILE *fp, %snode, int depth) {
+  if (NULL == node) return;
   fprintf(fp, "%s");
   depth++;""" % (node, nodetype, node)
   for (fieldnode, fieldtype, fieldname) in fields[node]:
@@ -89,6 +90,7 @@ void print%s(FILE *fp, %snode, int depth) {
 
   print_impl = print_impl + """
 void print%sTyped(FILE *fp, %snode, int depth) {
+  if (NULL == node) return;
   fprintf(fp, "%s");
   depth++;""" % (node, nodetype, node)
   for (fieldnode, fieldtype, fieldname) in fields[node]:
@@ -182,6 +184,7 @@ void add%s(%slist, %snode) {
   print_impl = ""
   print_impl = print_impl + """
 void print%s(FILE *fp, %slist, int depth) {
+  if (NULL == list) return;
   fprintf(fp, "%s");
   depth++;
   %scur = list->head;
@@ -195,6 +198,7 @@ void print%s(FILE *fp, %slist, int depth) {
 """ % (node, listtype, node, elemtype, orignode);
   print_impl = print_impl + """
 void print%sTyped(FILE *fp, %slist, int depth) {
+  if (NULL == list) return;
   fprintf(fp, "%s");
   depth++;
   %scur = list->head;
@@ -270,7 +274,8 @@ struct %s {""" % (node)
   
   print_impl = ""
   print_impl = print_impl + """
-void print%s(FILE *fp, %snode, int depth) {""" % (node, types[node])
+void print%s(FILE *fp, %snode, int depth) {
+  if (NULL == node) return;""" % (node, types[node])
   print_impl = print_impl + """
   switch (node->kind) {"""
   for option in options:
@@ -308,7 +313,8 @@ void print%s(FILE *fp, %snode, int depth) {""" % (node, types[node])
 """
 
   print_impl = print_impl + """
-void print%sTyped(FILE *fp, %snode, int depth) {""" % (node, types[node])
+void print%sTyped(FILE *fp, %snode, int depth) {
+  if (NULL == node) return;""" % (node, types[node])
   print_impl = print_impl + """
   switch (node->kind) {"""
   for option in options:

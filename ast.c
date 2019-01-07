@@ -291,6 +291,7 @@ void addExpression(struct ExpressionList *list, struct Expression *node) {
 
 
 void printTranslationUnit(FILE *fp, struct TranslationUnit *node, int depth) {
+  if (NULL == node) return;
   fprintf(fp, "TranslationUnit");
   depth++;
   fprintf(fp, "\n");
@@ -301,6 +302,7 @@ void printTranslationUnit(FILE *fp, struct TranslationUnit *node, int depth) {
 }
 
 void printTranslationUnitTyped(FILE *fp, struct TranslationUnit *node, int depth) {
+  if (NULL == node) return;
   fprintf(fp, "TranslationUnit");
   depth++;
   fprintf(fp, "\n");
@@ -316,6 +318,7 @@ void printTranslationUnitTyped(FILE *fp, struct TranslationUnit *node, int depth
 }
 
 void printBlock(FILE *fp, struct Block *node, int depth) {
+  if (NULL == node) return;
   fprintf(fp, "Block");
   depth++;
   fprintf(fp, "\n");
@@ -336,6 +339,7 @@ void printBlock(FILE *fp, struct Block *node, int depth) {
 }
 
 void printBlockTyped(FILE *fp, struct Block *node, int depth) {
+  if (NULL == node) return;
   fprintf(fp, "Block");
   depth++;
   fprintf(fp, "\n");
@@ -356,6 +360,7 @@ void printBlockTyped(FILE *fp, struct Block *node, int depth) {
 }
 
 void printFuncDecl(FILE *fp, struct FuncDecl *node, int depth) {
+  if (NULL == node) return;
   fprintf(fp, "FuncDecl");
   depth++;
   fprintf(fp, "\n");
@@ -386,6 +391,7 @@ void printFuncDecl(FILE *fp, struct FuncDecl *node, int depth) {
 }
 
 void printFuncDeclTyped(FILE *fp, struct FuncDecl *node, int depth) {
+  if (NULL == node) return;
   fprintf(fp, "FuncDecl");
   depth++;
   fprintf(fp, "\n");
@@ -426,6 +432,7 @@ void printFuncDeclTyped(FILE *fp, struct FuncDecl *node, int depth) {
 }
 
 void printTypedIdent(FILE *fp, struct TypedIdent *node, int depth) {
+  if (NULL == node) return;
   fprintf(fp, "TypedIdent");
   depth++;
   fprintf(fp, "\n");
@@ -441,6 +448,7 @@ void printTypedIdent(FILE *fp, struct TypedIdent *node, int depth) {
 }
 
 void printTypedIdentTyped(FILE *fp, struct TypedIdent *node, int depth) {
+  if (NULL == node) return;
   fprintf(fp, "TypedIdent");
   depth++;
   fprintf(fp, "\n");
@@ -461,6 +469,7 @@ void printTypedIdentTyped(FILE *fp, struct TypedIdent *node, int depth) {
 }
 
 void printTypedIdentList(FILE *fp, struct TypedIdentList *list, int depth) {
+  if (NULL == list) return;
   fprintf(fp, "TypedIdentList");
   depth++;
   struct TypedIdentListElement *cur = list->head;
@@ -473,6 +482,7 @@ void printTypedIdentList(FILE *fp, struct TypedIdentList *list, int depth) {
 }
 
 void printTypedIdentListTyped(FILE *fp, struct TypedIdentList *list, int depth) {
+  if (NULL == list) return;
   fprintf(fp, "TypedIdentList");
   depth++;
   struct TypedIdentListElement *cur = list->head;
@@ -485,6 +495,7 @@ void printTypedIdentListTyped(FILE *fp, struct TypedIdentList *list, int depth) 
 }
 
 void printFuncDeclList(FILE *fp, struct FuncDeclList *list, int depth) {
+  if (NULL == list) return;
   fprintf(fp, "FuncDeclList");
   depth++;
   struct FuncDeclListElement *cur = list->head;
@@ -497,6 +508,7 @@ void printFuncDeclList(FILE *fp, struct FuncDeclList *list, int depth) {
 }
 
 void printFuncDeclListTyped(FILE *fp, struct FuncDeclList *list, int depth) {
+  if (NULL == list) return;
   fprintf(fp, "FuncDeclList");
   depth++;
   struct FuncDeclListElement *cur = list->head;
@@ -509,6 +521,7 @@ void printFuncDeclListTyped(FILE *fp, struct FuncDeclList *list, int depth) {
 }
 
 void printStatement(FILE *fp, struct Statement *node, int depth) {
+  if (NULL == node) return;
   switch (node->kind) {
   case ASSIGNSTATEMENT:
     fprintf(fp, "AssignStatement");
@@ -602,6 +615,7 @@ void printStatement(FILE *fp, struct Statement *node, int depth) {
 }
 
 void printStatementTyped(FILE *fp, struct Statement *node, int depth) {
+  if (NULL == node) return;
   switch (node->kind) {
   case ASSIGNSTATEMENT:
     fprintf(fp, "AssignStatement");
@@ -711,6 +725,7 @@ void printStatementTyped(FILE *fp, struct Statement *node, int depth) {
 }
 
 void printStatementList(FILE *fp, struct StatementList *list, int depth) {
+  if (NULL == list) return;
   fprintf(fp, "StatementList");
   depth++;
   struct StatementListElement *cur = list->head;
@@ -723,6 +738,7 @@ void printStatementList(FILE *fp, struct StatementList *list, int depth) {
 }
 
 void printStatementListTyped(FILE *fp, struct StatementList *list, int depth) {
+  if (NULL == list) return;
   fprintf(fp, "StatementList");
   depth++;
   struct StatementListElement *cur = list->head;
@@ -735,6 +751,7 @@ void printStatementListTyped(FILE *fp, struct StatementList *list, int depth) {
 }
 
 void printExpression(FILE *fp, struct Expression *node, int depth) {
+  if (NULL == node) return;
   switch (node->kind) {
   case BINARYEXPRESSION:
     fprintf(fp, "BinaryExpression");
@@ -808,6 +825,7 @@ void printExpression(FILE *fp, struct Expression *node, int depth) {
 }
 
 void printExpressionTyped(FILE *fp, struct Expression *node, int depth) {
+  if (NULL == node) return;
   switch (node->kind) {
   case BINARYEXPRESSION:
     fprintf(fp, "BinaryExpression");
@@ -937,6 +955,7 @@ void printExpressionTyped(FILE *fp, struct Expression *node, int depth) {
 }
 
 void printExpressionList(FILE *fp, struct ExpressionList *list, int depth) {
+  if (NULL == list) return;
   fprintf(fp, "ExpressionList");
   depth++;
   struct ExpressionListElement *cur = list->head;
@@ -949,6 +968,7 @@ void printExpressionList(FILE *fp, struct ExpressionList *list, int depth) {
 }
 
 void printExpressionListTyped(FILE *fp, struct ExpressionList *list, int depth) {
+  if (NULL == list) return;
   fprintf(fp, "ExpressionList");
   depth++;
   struct ExpressionListElement *cur = list->head;
