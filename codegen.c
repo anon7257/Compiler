@@ -178,7 +178,7 @@ static void setVariable(struct Symbol *symbol, int reg) {
 static void visitAssignStatement(struct Statement *node) {
   // given
   struct Symbol *symbol = node->assign_symbol;
-  int assigned_reg = visitExpression(node->assign_expression, 0);
+  int assigned_reg = visitExpression(node->assign_expression, node->assign_expression->ershov - 1);
 
   setVariable(symbol, assigned_reg);
 }
@@ -276,7 +276,7 @@ static void visitReadStatement(struct Statement *node) {
 
 static void visitWriteStatement(struct Statement *node) {
   // given
-  int reg = visitExpression(node->write_expression, 0);
+  int reg = visitExpression(node->write_expression, node->write_expression->ershov - 1);
   emit(VM_WR(reg));
 }
 
@@ -423,7 +423,7 @@ static int visitFunctionFactor(struct Expression *node, int reg_base) {
   setupFunctionCall(fsymbol, parameters, reg_base);
 
   // pop any registers that hold temporary values
-  for (int i = 0; i < reg_base; i++) {
+  for (int i = reg_base - 1; i >= 0; i--) {
     code[code_index++] = VM_POP(i, SP);
   }
 
