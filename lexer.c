@@ -10,6 +10,8 @@
 
 #include "lexer_reserved.c"
 
+// here is a comment
+
 struct Token** lexer(FILE *lexerin) {
   int token_list_i = 0;
   struct Token** token_list = alloc_token_list();
